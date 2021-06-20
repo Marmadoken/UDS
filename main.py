@@ -1,15 +1,13 @@
 import pandas as pd
 import scipy.stats as stats
 import matplotlib.pyplot as plt
-
 import statsmodels.stats.api as sms
 
 from sklearn.linear_model import LinearRegression
 
-
 #---1---
 #Загрузить данные
-xl = pd.ExcelFile()
+xl = pd.ExcelFile("data.xls")
 df = xl.parse("Data")
 print(df)
 print()
@@ -29,6 +27,12 @@ print()
 print()
 
 
+
+# вычисляется сводная статистика, относящаяся к столбцам
+#разброс значений, среднее и медиана
+print('''вычисляется сводная статистика, относящаяся к столбцам
+разброс значений, среднее и медиана''')
+print(df.describe())
 
 #графики
 z=df['kol_svetofor'].plot()
@@ -79,16 +83,6 @@ axs[0].set_title('Количество \nсветофоров ')
 axs[1].hist(df['kol_gruz1'], bins=20)
 axs[1].set_title('Количество \nдорожных знаков  ')
 #plt.show()
-
-
-
-# вычисляется сводная статистика, относящаяся к столбцам
-#разброс значений, среднее и медиана
-print('''вычисляется сводная статистика, относящаяся к столбцам
-разброс значений, среднее и медиана''')
-print(df.describe())
-
-
 
 #уникальные значения
 print('Уникальные значения поля "Количество камер слежения "')
