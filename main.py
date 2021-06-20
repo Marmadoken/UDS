@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 
 #---1---
 #Загрузить данные
-xl = pd.ExcelFile()
+xl = pd.ExcelFile("data.xls")
 df = xl.parse("Data")
 print(df)
 print()
